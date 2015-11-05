@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	 <head>
+		<meta charset="UTF-8">
+		<title> Blog of Luthfi A. </title>
+		<meta name="description" content="Blog of Luthfi Abdurrahim, menjelaskan tentang opini saya melalui artikel yang saya tulis.">
+		<meta name="author" content="Luthfi Abdurrahim">
+		<link id="main_css" rel="stylesheet" type="text/css" href="css/style.css">
+		<link id="menu_css" rel="stylesheet" type="text/css" href="css/cssmenu.css">
+			
+	</head>
+	
+	<body>
+		<div id="header">
+		<div id="cssmenu">
+				<ul>
+				   <li><a href='index.html'><span>Home</span></a></li>
+				   <li><a href='Post_Profile.html'><span>Profile</span></a></li>
+				   <li><a href='Blog.html'><span>Blog</span></a>				   		
+				   </li>
+				   <li><a href='index.html'><span>My Schedule</span></a></li>
+				   <li><a href='Contact.html'><span>Contact</span></a></li>				   
+				   <li id="theme"><a href='#'><span>Change Theme</span></a></li>
+				</ul>
+		</div>
+			<div class="container" id="home">																					
+								<h1>Luthfi Abdurrahim</h1>
+								<h3>Life is learning process</h3>											
+
+				<a href="http://www.facebook.com/luthviar">
+					<img src="images/Facebook_8-128.png" width=30 height=30 alt="icon of facebook">
+				</a>
+				<a href="http://www.twitter.com/luthviar">
+					<img src="images/Twitter_9-128.png" width=30 height=30 alt="icon of twitter">
+				</a>
+				<a href="http://www.instagram.com/luthviar">
+					<img src="images/Instagram_9-128.png" width=30 height=30 alt="icon of instagram">
+				</a>
+
+				<br>
+
+				<video width="320" height="240" controls>
+					<source src="video/movie.mp4" type="video/mp4">				  
+				</video>
+			</div>
+			<br>
+
+		</div>
+			<div class="container" >
+				<div id="article2">				
+					<section>
+						<div class="text-center"><img src="images/win10.png" width=150 height=150 alt="Profile Photo"></div>
+						<div class="text-center"> <h2>"Microsoft Launch Windows 10!"</h2></div>
+						<hr>
+						<p class="text-center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper leo sed tellus dignissim euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper leo sed tellus dignissim euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper leo sed tellus dignissim euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper leo sed tellus dignissim euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper leo sed tellus dignissim euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper leo sed tellus dignissim euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper leo sed tellus dignissim euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper leo sed tellus dignissim euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper leo sed tellus dignissim euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper leo sed tellus dignissim euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper leo sed tellus dignissim euismod. </p>
+					</section>
+
+					<div id="comment">
+						<fieldset>
+							<legend>Comment</legend>
+								<p>
+									<b>Andi</b> Andi@sesuatu.com <br></br>
+									Waaah gitu yaaa.. Nanti ah gantian cerita :)
+									<hr>
+									<b>Lila</b> Lila@sisi.com <br></br>
+									Mantap! Semangat!
+									<hr>
+									<p id="showComment">
+
+									</p>
+								</p>
+						</fieldset>
+					</div>
+				</div>
+			</div>
+			
+			<div class="container">
+				<div id="contact">
+					<section>
+					 <h2> Your Comment </h2>
+						<hr>						
+							<div id="contact-left">
+								<img src="images/email.png" width=100 height=100 alt='email icon'>
+							</div>
+							
+							<div id="contact-right">
+								<table>
+									<tr> 
+										<td><h5>Name* :<h5></td>
+										<td><input id="fullName" type="text" placeholder="Enter your fullname..." required></td>
+									</tr>
+									<tr>
+										<td><h5>Email* :</h5></td>
+										<td><input id="email" type="email" placeholder="Enter your email..." required></td>
+									</tr>
+									<tr>
+										<td><h5>Your Comment :</h5></td>
+										<td><textarea id="commentUser" rows="5" cols="25" placeholder="Enter your comment..." required></textarea></td>
+									</tr>
+									<tr>
+										<td><input type="submit" value="submit" onclick="commentAppend()"/></td>
+									</tr>
+									
+								</table>								
+							</div>
+						</section>	
+				</div>
+			</div>	
+			
+			<div class="container" >
+			<div id="blog">
+				<section>
+					<div class="text-center">
+						<h2> Other Blog </h2>
+						<ul id="dropdown">
+						    <li><a href="#" 
+						        onmouseover="mopen('m1')" 
+						        onmouseout="mclosetime()">Category</a>
+						        <div id="m1" 
+						            onmouseover="mcancelclosetime()" 
+						            onmouseout="mclosetime()">
+						        <a href="#section-technology">Technology</a>
+						        <a href="#section-education">Education</a>
+						        <a href="#section-politics">Politics</a>
+						        </div>
+						    </li>						    
+						</ul>
+						<div style="clear:both"></div>
+						
+				<hr>				
+					<div id="kumpulan-article">
+						<div class="article">
+							<h3>Hei, Aku Kuliah!</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper leo sed tellus dignissim euismod. more...</p>
+						</div>
+						<div class="article">
+							<h3>Hei, Aku Kuliah!</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper leo sed tellus dignissim euismod. more...</p>
+						</div>
+						<div class="article">
+							<h3>Hei, Aku Kuliah!</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper leo sed tellus dignissim euismod. more...</p>
+						</div>
+						<div class="article">
+							<h3>Hei, Aku Kuliah!</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper leo sed tellus dignissim euismod. more...</p>
+						</div>
+						<div class="article">
+							<h3>Hei, Aku Kuliah!</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper leo sed tellus dignissim euismod. more...</p>
+						</div>
+					</div>
+				</section>					
+				</div>
+			</div>
+						
+			
+			<footer>
+				<hr>
+				<div class="text-center">Created by : Luthfi Abdurrahim | Sistem Informasi 2014 | Universitas Indonesia</div>
+			</footer> 
+		<script type="text/javascript" src="js/custom.js"></script>	
+		</body>
+</html>

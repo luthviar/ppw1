@@ -1,0 +1,34 @@
+<h3>"Microsoft Launch Windows 10"</h3>
+
+Microsoft today opened the door to its Windows Insider Program, letting adventurous customers download an early, unpolished preview of Windows 10.
+windows 10 laptop
+Review: The best 13-inch laptops for Windows 10
+
+Laptops and convertibles from Acer, Asus, Dell, HP, Lenovo, and Microsoft square off in our
+Read Now
+
+Windows 10, which Microsoft labeled as a Technical Preview, comes in the form of an .iso file that ranges in size from 2.9GB to 4GB, depending on the language chosen. Both 32- and 64-bit versions are available, but only in English, Chinese and Portuguese editions.
+
+Microsoft introduced Windows 10 on Tuesday at an hour-long news conference, where a pair of the company's executives highlighted some of the changes from Windows 8 and touted its usefulness to enterprise customers.
+
+During the presentation, Terry Myerson, the chief of Microsoft's OS group, warned users that the technical preview has rough edges, saying it "will be of variable quality."
+
+That was reinforced today on a company blog and an FAQ. "We're not kidding about the expert thing," the FAQ stated. "So if you think BIOS is a new plant-based fuel, Tech[nical] Preview may not be right for you."
+
+Because the Windows 10 preview arrives as an .iso file -- a disk image rather than an executable installer -- users will need a third-party program to "burn" the .iso to a DVD or USB flash drive to create bootable installation media. There are scores of programs that do that -- most DVD burning software does -- including Microsoft's free, open-source Windows 7 USB/DVD Download Tool.
+
+Microsoft also warned users that they will not be able to use the PC's original recovery partition after installing the preview, and urged them to create a recovery DVD or USB drive before putting Windows 10 on the system.
+
+While Microsoft has offered early glimpses of its operating systems before -- it let anyone download the Developer Preview of Windows 8, for instance -- Myerson stressed that the company was serious this time about its interest in hearing what customers thought.
+
+"[We're] inviting our most enthusiastic Windows fans to help shape Windows," Myerson said Tuesday. He also asserted that the firm was sharing "more than we ever have before, and frankly, earlier than we ever have before," and promised that Windows 10 would "be our most open, collaborative OS project ever."
+
+In interviews yesterday, analysts agreed, pointing out that since Myerson took charge of the OS division in mid-2013, Microsoft has tried to repair the damage done by the secretive development style that was used to craft Windows 8.
+
+"This OS is being created in collaboration with all of Microsoft's major OEMs, and Microsoft is acting much more collaboratively," opined Patrick Moorhead, principal analyst at Moor Insights & Strategy.
+
+Participants in the Insider Program may use a feedback app to report problems, request changes or new features, or, one supposes, to just blow off steam.
+
+<br><br>
+
+source : http://www.computerworld.com/article/2690559/microsoft-launches-windows-10-preview-program.html

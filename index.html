@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html>
+	 <head>
+		<meta charset="UTF-8">
+		<title> Blog of Luthfi A. </title>
+		<meta name="description" content="Blog of Luthfi Abdurrahim, menjelaskan tentang opini saya melalui artikel yang saya tulis.">
+		<meta name="author" content="Luthfi Abdurrahim">
+
+		<link id="main_css" rel="stylesheet" type="text/css" href="css/style.css">		
+		<link id="menu_css" rel="stylesheet" type="text/css" href="css/cssmenu.css">
+		<link id="slider_css" rel="stylesheet" type="text/css" href="css/style-slider.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.min.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css">
+		<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>	
+
+		<script type="text/javascript">
+			// Cookie functions
+			// Some code based on the article by James Wondrasek, "The way cookie crumbles",
+			// Internet.au magazine
+
+			function SetCookie (name,value,expires,path,domain,secure) 
+			{
+			  document.cookie = name + "=" + escape (value) +
+			    ((expires) ? "; expires=" + expires.toGMTString() : "") +
+			    ((path) ? "; path=" + path : "") +
+			    ((domain) ? "; domain=" + domain : "") +
+			    ((secure) ? "; secure" : "");
+			}
+
+			function DeleteCookie (name,path,domain) 
+			{
+			  if (GetCookie(name)) {
+			    document.cookie = name + "=" +
+			      ((path) ? "; path=" + path : "") +
+			      ((domain) ? "; domain=" + domain : "") +
+			      "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+			  }
+			}
+
+			function GetCookie (name) 
+			{
+			  var arg = name + "=";
+			  var alen = arg.length;
+			  var clen = document.cookie.length;
+			  var i = 0;
+			  while (i < clen) {
+			    var j = i + alen;
+			    if (document.cookie.substring(i, j) == arg)
+			      return getCookieVal (j);
+				i = document.cookie.indexOf(" ", i) + 1;
+			    if (i == 0) break; 
+			  }
+			  return null;
+			}
+
+			function getCookieVal (offset)
+			{
+				var str = document.cookie.indexOf(";", offset);
+				if(str==-1) str = document.cookie.length;
+				return unescape(document.cookie.substring(offset, str));
+			}
+		</script>
+
+		<script language="javascript">
+			  function DisplayVisits() 
+				 {   
+				  // How many visits so far?
+				      var numVisits = GetCookie("numVisits");
+				      if (numVisits) numVisits = parseInt(numVisits) + 1;
+				      else numVisits = 1; // the value for the new cookie
+				 
+				  // Show the number of visits
+				      if (numVisits==1) document.write("This is your first visit.");
+				      else document.write("You have visited this page " + numVisits + " times.");
+				 
+				  // Set the cookie to expire 365 days from now
+				      var today = new Date();
+				      today.setTime(today.getTime() + 365 /*days*/ * 24 /*hours*/ * 60 /*minutes*/ * 60 /*seconds*/ * 1000 /*milliseconds*/);
+				      SetCookie("numVisits", numVisits, today);
+				  }			 
+		</script>		
+		<style type="text/css">
+		
+		</style>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#myModal").modal('show');
+			});
+		</script>
+	</head>
+	
+	<body>
+		<div id="myModal" class="modal fade">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">×</button> -->
+		                <h4 class="modal-title text-center"><b>Guest Book</b></h4>
+		            </div>
+		            <div class="modal-body">
+						<p>Tolong isi data ini, karena akan digunakan untuk statistik data pengunjung.</p>
+		                <hr>
+		                    <form id="form" action="#" method="POST">
+									 
+										  
+											<div class="form-group">
+												 <h5>Name* :<h5> 
+												 <input class="form-control" id="fullNameBio" type="text" placeholder="Enter your fullname..." required> 
+											</div>
+										 
+										 <hr>
+
+											<div class="form-group">
+												 <h5>Jenis Kelamin* :</h5> 
+												 <!-- <input type="text" id="jeniskelamin" class="form-control" name="jeniskelamin" placeholder="isilah : pria /	 wanita" required />  -->
+											</div>
+										 
+										 <hr>
+										 
+											<div class="form-group">
+												 <h5>Umur* :</h5> 
+												<!--  <input type="text" id="umur" class="form-control" name="umur" placeholder="Umur" required />  -->
+											</div>
+										 
+										 <hr>
+										 
+											<div class="form-group">
+												 <h5>Daerah* :</h5> 
+												 <input type="text" class="form-control" id="daerah" name="daerah" placeholder="Daerah" required /> 
+											</div>
+										 
+										 <hr>
+										 										
+											<div class="form-group">
+												
+												 <input class="btn btn-primary" id="biodatapost" type="submit" value="submit"/> 
+												 <button class="btn btn-danger" id="clearnew">Clear All</button> 
+											</div>
+										 									
+									 						
+								</form>
+		                
+		            </div>
+		        </div>
+		    </div>
+		</div>
+
+		<!-- bagian header website -->
+		<!-- pada ID header ini, berisi menubar/navbar dan header website -->
+		<div id="header">
+			<div id="cssmenu">
+					<ul>
+					   <li><a href='Home.html'><span>Home</span></a></li>
+					   <li><a href='Post_Profile.html'><span>Profile</span></a></li>
+					   <li><a href='Blog.html'><span>Blog</span></a>				   		
+					   </li>
+					   <li><a href='Home.html'><span>My Schedule</span></a></li>
+					   <li><a href='Contact.html'><span>Contact</span></a></li>				   
+					   <li id="theme"><a href='#'><span>Change Theme</span></a></li>
+					</ul>
+			</div>							
+
+			<div class="container" id="home">									
+		
+					<h1>Luthfi Abdurrahim</h1>
+					<h3>Life is learning process</h3>				
+							
+
+				<a href="http://www.facebook.com/luthviar">
+					<img src="images/Facebook_8-128.png" width=30 height=30 alt="icon of facebook">
+				</a>
+				<a href="http://www.twitter.com/luthviar">
+					<img src="images/Twitter_9-128.png" width=30 height=30 alt="icon of twitter">
+				</a>
+				<a href="http://www.instagram.com/luthviar">
+					<img src="images/Instagram_9-128.png" width=30 height=30 alt="icon of instagram">
+				</a>
+
+				<br>
+
+				<video width="320" height="240" controls>
+					<source src="video/movie.mp4" type="video/mp4">				  
+				</video>
+			</div>
+			<br>
+		</div>
+		<!-- end of header -->
+
+
+		<!-- bagian section profile -->
+		<div class="container" >
+			<div id="profile">				
+				<section>
+					<div class="text-center"><img src="images/anonim.png" width=50 height=50 alt="Profile Photo"></div>
+					<div class="text-center"> <h2>Cerita ku, Tentang ku</h2></div>
+					<hr>
+					<p class="text-center" id="my-profile"> Aku adalah seorang Mahasiswa, kerjaanku kuliah. tapi tak hanya sekedar kuliah, di fakultas ku ini, pekerjaanku bertambah, yaitu ngoding. Ya, ngoding, membuat program untuk mempermudah suatu pekerjaaan katanya. Tapi, memang begitulah tujuan secara umum dari ngoding, kami membuat program untuk memecahkan suatu solusi. <a href="#profile" id="readmore" onclick="readMore()">..read more</a></p>
+					
+						<button class="tombol tombol-1 tombol-1a">My Profile</button>
+				</section>
+			</div>
+		</div>
+		<!-- end of section profile -->
+
+
+		<!-- full width responsive image slider + bonus-->
+		<!-- source from : http://www.codepen.io -->
+		<div class="container-image-slider">
+			<div class="slider-container">
+				  <div class="slider-control left inactive"></div>
+				  <div class="slider-control right"></div>
+				  <ul class="slider-pagi"></ul>
+				  <div class="slider">
+				    <div class="slide slide-0 active">
+				      <div class="slide__bg"></div>
+				      <div class="slide__content">
+				        <svg class="slide__overlay" viewBox="0 0 720 405" preserveAspectRatio="xMaxYMax slice">
+				          <path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
+				        </svg>
+				        <div class="slide__text">
+				          <h2 class="slide__text-heading">ORION dan MINION</h2>
+				          <p class="slide__text-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia.</p>
+				          <a class="slide__text-link">Read More..</a>
+				        </div>
+				      </div>
+				    </div>
+				    <div class="slide slide-1 ">
+				      <div class="slide__bg"></div>
+				      <div class="slide__content">
+				        <svg class="slide__overlay" viewBox="0 0 720 405" preserveAspectRatio="xMaxYMax slice">
+				          <path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
+				        </svg>
+				        <div class="slide__text">
+				          <h2 class="slide__text-heading">Politics, yeah!</h2>
+				          <p class="slide__text-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia.</p>
+				          <a class="slide__text-link">Read More..</a>
+				        </div>
+				      </div>
+				    </div>
+				    <div class="slide slide-2">
+				      <div class="slide__bg"></div>
+				      <div class="slide__content">
+				        <svg class="slide__overlay" viewBox="0 0 720 405" preserveAspectRatio="xMaxYMax slice">
+				          <path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
+				        </svg>
+				        <div class="slide__text">
+				          <h2 class="slide__text-heading">3D Printer now booming!</h2>
+				          <p class="slide__text-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia.</p>
+				          <a class="slide__text-link">Read More..</a>
+				        </div>
+				      </div>
+				    </div>
+				    <div class="slide slide-3">
+				      <div class="slide__bg"></div>
+				      <div class="slide__content">
+				        <svg class="slide__overlay" viewBox="0 0 720 405" preserveAspectRatio="xMaxYMax slice">
+				          <path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
+				        </svg>
+				        <div class="slide__text">
+				          <h2 class="slide__text-heading">Education is important</h2>
+				          <p class="slide__text-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia.</p>
+				          <a class="slide__text-link">Read More..</a>
+				        </div>
+				      </div>
+				    </div>
+
+				    <div class="slide slide-4">
+				      <div class="slide__bg"></div>
+				      <div class="slide__content">
+				        <svg class="slide__overlay" viewBox="0 0 720 405" preserveAspectRatio="xMaxYMax slice">
+				          <path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
+				        </svg>
+				        <div class="slide__text">
+				          <h2 class="slide__text-heading">Windows 10 now launching!</h2>
+				          <p class="slide__text-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia.</p>
+				          <a class="slide__text-link">Read More..</a>
+				        </div>
+				      </div>
+				    </div>					    
+				  </div>
+			</div>
+		</div>
+		<!-- end of section image slider -->
+
+
+		<!-- bagian section kumpulan blog -->
+		<div class="container" >
+			<div id="blog">
+			<section>
+				<div class="text-center">
+					<h2> Blog </h2>
+					<ul id="dropdown">
+					    <li><a href="#" 
+					        onmouseover="mopen('m1')" 
+					        onmouseout="mclosetime()">Category</a>
+					        <div id="m1" 
+					            onmouseover="mcancelclosetime()" 
+					            onmouseout="mclosetime()">
+					        <a href="#section-technology" class="more-techno">Technology</a>
+					        <a href="#section-education" class="more-edu">Education</a>
+					        <a href="#section-politics" class="more-politic">Politics</a>
+					        </div>
+					    </li>						    
+					</ul>
+					
+					
+			<hr>				
+				<div id="kumpulan-article">
+					<div class="article">
+						<h3>Hei, Aku Kuliah!</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper leo sed tellus dignissim euismod. more...</p>
+					</div>
+					<div class="article">
+						<h3>Hei, Aku Kuliah!</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper leo sed tellus dignissim euismod. more...</p>
+					</div>
+					<div class="article">
+						<h3>Hei, Aku Kuliah!</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper leo sed tellus dignissim euismod. more...</p>
+					</div>
+					<div class="article">
+						<h3>Hei, Aku Kuliah!</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper leo sed tellus dignissim euismod. more...</p>
+					</div>
+					<div class="article">
+						<h3>Hei, Aku Kuliah!</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper leo sed tellus dignissim euismod. more...</p>
+					</div>
+				</div>
+			</section>					
+			</div>				
+		</div>
+		<!-- end of section kumpulan blog -->
+
+						
+		<!-- bagian section technology -->
+		<div class="container">
+			<div id="section-technology">
+			  <h2> Technology</h2> 
+				<hr>
+				<div class="article">
+				<h3>"Microsoft Launch Windows 10"</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper leo sed tellus dignissim euismod. ..more</p> 
+				</div>
+				<div class="article">
+				<h3>"#D Printer now Booming!"</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper leo sed tellus dignissim euismod. more...</p>
+				</div>
+				<div class="article">
+				<h3>"Touch in The Sky, Yeah!"</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper leo sed tellus dignissim euismod. more...</p>
+				</div>
+			</div>				
+		</div>
+		<!-- end of section technology -->
+
+		<!-- section append text of technology -->
+		<div class="container" >
+			<div id="section-append-techno">				
+				<section>					
+					<p id="techno-microsoft-text"><a href="#section-technology" class="more-techno" ></a></p>					
+				</section>
+			</div>
+		</div>
+		<!-- end of section append text of technology -->
+
+		<!-- bagian section education -->
+		<div class="container">
+			<div id="section-education">
+				  <h2> Education</h2>
+				<hr>
+				<div class="article">
+				<h3>"New Idea, New Creation"</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper leo sed tellus dignissim euismod. more...</p>
+				</div>
+				<div class="article">
+				<h3>"Start now, or never!"</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper leo sed tellus dignissim euismod. more...</p>
+				</div>
+				<div class="article">
+				<h3>"School? is it important?"</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper leo sed tellus dignissim euismod. more...</p>
+				</div>
+			</div>	
+		</div>
+		<!-- end of section education -->
+
+		<!-- section append text of education -->
+		<div class="container" >
+			<div id="section-append-edu">				
+				<section>					
+					<p id="edu-text"><a href="#section-education" class="more-edu"></a></p>					
+				</section>
+			</div>
+		</div>
+		<!-- end of section append text of educaton -->
+
+		<!-- bagian section politics -->			
+		<div class="container">
+			<div id="section-politics">
+				  <h2> Politics</h2> 
+				<hr>
+				<div class="article">
+				<h3>"Cekcok Dua Kubu, Haruskah?"</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper leo sed tellus dignissim euismod. more...</p>
+				</div>
+				<div class="article">
+				<h3>"Menang atau Kalah, Haruskah Konflik?"</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper leo sed tellus dignissim euismod. more...</p>
+				</div>
+				<div class="article">
+				<h3>"Kambing Hitam dalam Semak"</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper leo sed tellus dignissim euismod. more...</p>
+				</div>
+			</div>	
+		</div>
+		<!-- end of section politics -->
+
+		<!-- section append text of politic -->
+		<div class="container" >
+			<div id="section-append-politic">				
+				<section>					
+					<p id="politic-text"><a href="#section-politics" class="more-politic"></a></p>					
+				</section>
+			</div>
+		</div>
+		<!-- end of section append text of politic -->
+
+
+		<!-- bagian section my schedule -->
+		<div class="container">
+			<div id="my-schedule">
+				<div class="text-center"> 
+					<h2> My Schedule </h2>
+				</div> 
+				<hr>
+					<div class="heavyTable">
+			
+						<table style="width:100%">
+							<tr>
+								<th>Senin</th>
+								<th>Selasa</th>
+								<th>Rabu</th>
+								<th>Kamis</th>
+								<th>Jum'at</th>
+							</tr>
+							<tr>
+								<td>Aljabar Linier</td>
+								<td>PPW</td>
+								<td>Aljabar Linier</td>
+								<td>PPW</td>
+								<td>SDA</td>
+							</tr>
+							<tr>
+								<td>PPM</td>
+								<td>SDA</td>
+								<td>PPM</td>
+								<td>MPK Agama</td>
+								<td>Lab SDA</td>
+							</tr>
+						</table>
+					</div>
+			</div>
+		</div>
+		<!-- end of section my schedule -->
+			
+			<div class="container">
+				<div id="my-schedule">
+					<button type="button" onclick="loadXMLDoc()">Get my CD collection</button>
+					<br>
+					<table id="demo"></table>
+				</div>
+			</div>
+			
+
+
+			<div class="container">
+				<div id="postajax">
+					<section class="homes">
+						<button type="button" class="more_post">Load more post</button>
+					</section>					
+				</div>
+			</div>
+
+		<!-- bagian section contact -->
+		<div class="container">
+			<div id="contact">
+				 <h2> Form Pengunjung </h2>
+					<hr>
+						<div id="contact-left">
+							<img src="images/email.png" width=100 height=100 alt='email icon'><br>
+							<button class="	tombol-1 tombol-2a">More Contact</button>
+						</div>
+						
+						<div id="contact-right">													
+						<div id="newBiodata"></div>asd							
+								<p id="newPria"></p><br>
+								<p id="newWanita"></p><br>
+								<p id="newVisit"></p><br>
+								<p id="newUmur"></p><br>							
+						</div>	
+						
+			</div>
+
+			<fieldset>
+				<legend>Comment</legend>				
+				<!-- <label><input type="radio" id="jeniskelaminw"  name="jeniskelamin" value="wanita" placeholder="isilah : pria / wanita" required />Wanita </label>
+				<label><input type="radio" id="jeniskelamin"  name="jeniskelamin" value="pria" placeholder="isilah : pria / wanita" required /> Pria </label> -->
+				 <input type="text" id="umur" class="form-control" name="umur" placeholder="Umur" required /> 
+				 <input onclick="countingClick()" class="btn btn-primary" type="submit" value="yuhusub"/> <br>
+				 <label for="gender">GENDER:  
+					<input type="radio" id="radiobtn1" name="jeniskelamin" value="0"/>  
+					<label for="radiobtn1">pria</label>  
+					<input type="radio" id="radiobtn1" name="jeniskelamin" value="1"/>
+					<label for="radiobtn1">wanita</label>  
+					</label> 
+					<br>
+				<!-- <button type="submit" value="submit" onclick="countingClick()">cobaan1</button> -->
+				<button id="clearnew">clear</button>
+				<p id="lblCounter"></p>
+				<br>
+					<p>
+						<script language="javascript">DisplayVisits();</script> <br>
+						<b>Andi</b> Andi@sesuatu.com <br></br>
+						Waaah gitu yaaa.. Nanti ah gantian cerita :)
+						<hr>
+						<b>Lila</b> Lila@sisi.com <br></br>
+						Mantap! Semangat!
+						<hr>
+						<p id="alert">
+
+						</p>
+						<p id="newComment">
+
+						</p>
+					</p>								
+			</fieldset>
+		</div>	
+		<!-- end of section contact -->
+
+
+		<!-- bagian footer -->
+		<footer>
+			<hr>
+			<div class="text-center">Created by : Luthfi Abdurrahim | Sistem Informasi 2014 | Universitas Indonesia</div>
+		</footer> 		
+		<!-- end of footer -->
+
+		
+		<script type="text/javascript" src="js/custom.js"></script>		 
+		<script type="text/javascript">
+			// function countingClick2() {
+			// 	var vJenisKelamin = $('#jeniskelamin').val();
+			// 	var vUmur = $('#umur').val();
+
+			// 	if (typeof(Storage) !== "undefined") {
+
+			// 	} else {
+			// 		alert("not support");
+			// 	}
+			// }
+		</script>
+		<script type="text/javascript">
+
+			 function countingClick() {
+			 	var vJenisKelamin = $("input:checked + label").text(); 
+			 	
+			 	var vUmur = $('#umur').val();
+			 	var umurRata = 0;
+
+			 	str_count_umur = localStorage.getItem("countUmur");
+			    str_count = localStorage.getItem("count");
+			    str_count_visit = localStorage.getItem("countVisit");
+			    str_count_wanita = localStorage.getItem("countWanita");
+
+
+			    if (str_count_visit == null || str_count_visit == "null"){
+				      countVisit = 0;
+				    } else {
+				      countVisit = parseInt(str_count_visit);
+				    } // end if
+				    //increment count
+				    countVisit++;				    
+
+			    //get a numeric value from str_count, put it in count
+			    if(vJenisKelamin == "pria") {
+				    if (str_count == null || str_count == "null" ){
+				      count = 0;
+				 	  countWanita = parseInt(str_count_wanita);     
+				    } else {
+				      count = parseInt(str_count);
+				      countWanita = parseInt(str_count_wanita);     
+				    } // end if
+				    //increment count
+				    count++;
+				} 
+
+				if(vJenisKelamin == "wanita") {
+				    if (str_count_wanita == null || str_count_wanita == "null") {
+				    	countWanita = 0;
+				    	count = parseInt(str_count);
+				    } else {
+				    	countWanita = parseInt(str_count_wanita);
+				    	count = parseInt(str_count);
+				    }
+				    //increment count
+				    countWanita++;					
+				}
+
+
+				if(str_count_umur == null || str_count_umur == "null") {
+					countUmur=0;
+				} else {
+					countUmur = parseInt(str_count_umur);
+				}
+
+				countUmur = countUmur + parseInt(vUmur);
+
+				umurRata = Math.floor(countUmur/countVisit);
+
+				// countUmur = 0;
+				// countVisit = 0;
+				// countWanita = 0;
+				// count = 0;
+				
+				
+			    //display count
+			       lblCounter = document.getElementById("lblCounter");
+				    if (typeof(countWanita) !== "undefined" && typeof(count) !=="undefined") {
+				    	lblCounter.innerHTML = "Jumlah Pria :" + count + "Jumlah Wanita :" + countWanita + "||| Umur Rata-rata : " + umurRata + "||| Pengunjung : "+countVisit;			    
+				    }
+				    // } else if(typeof(countWanita) !== "undefined" && (str_count !== null || str_count !=="null")) {
+				    // 	lblCounter.innerHTML = "Jumlah Pria :" + count + "Jumlah Wanita :" + countWanita +  "||| Umur Rata-rata : " + countUmur + "||| Pengunjung : "+countVisit;
+				    // }
+			    // } else if(typeof(countWanita) !== "undefined" && typeof(count) == "undefined"){
+			    	
+			    // 	lblCounter.innerHTML = "Jumlah Pria :" + 0 + "Jumlah Wanita :" + countWanita +  "||| Umur Rata-rata : " + countUmur + "||| Pengunjung : "+countVisit;
+			    // } else if(typeof(count) !== "undefined" && typeof(countWanita) == "undefined") {			    	
+			    // 	lblCounter.innerHTML = "Jumlah Pria :" + count + "Jumlah Wanita :" + 0 + "||| Umur Rata-rata : " + countUmur + "||| Pengunjung : "+countVisit;
+			    // } else if(typeof(count) !== "undefined" || typeof(countWanita) !== "undefined") {
+			    // 	lblCounter.innerHTML = "Jumlah Pria :" + count + "Jumlah Wanita :" + countWanita + "||| Umur Rata-rata : " + countUmur + "||| Pengunjung : "+countVisit;			    
+			    // } else {
+			    // 	lblCounter.innerHTML = "Jumlah Pria :" + count + "Jumlah Wanita :" + countWanita + "||| Umur Rata-rata : " + countUmur + "||| Pengunjung : "+countVisit;			    
+			    // }
+			    //store count
+
+			    localStorage.setItem("countUmur", countUmur);
+			    localStorage.setItem("countVisit", countVisit);
+			    if(typeof(count) !== "undefined") {
+			    	localStorage.setItem("count", count);
+			    }
+			    if(typeof(countWanita) !== "undefined") {
+			    	localStorage.setItem("countWanita", countWanita);
+			    }
+			}
+
+			 //  if(localStorage.getItem('countVisit')) {
+				//   	str_count_umur = localStorage.getItem("countUmur");
+				//     str_count = localStorage.getItem("count");
+				//     str_count_visit = localStorage.getItem("countVisit");
+				//     str_count_wanita = localStorage.getItem("countWanita");
+
+				 
+				//     }
+
+				// 	// $('#lblCounter').html(localStorage.getItem('countWanita'));				
+				// 	$('#lblCounter').html(localStorage.getItem('count'));				
+				// 	$('#lblCounter').html(localStorage.getItem('countUmur'));				
+				// 	$('#lblCounter').html(localStorage.getItem('countVisit'));				
+				// }
+
+			//   $('#clearnew').click( function() {
+			// 	window.localStorage.clear();
+			// 	location.reload();
+			// 	return false;
+			// });
+		</script>
+		<script type="text/javascript">
+			// $('#biodatapost').click( function() {
+			//    // var vDescription = $('#description').val();
+			//    var vFullNameBio = $('#fullNameBio').val();
+			//    var vJenisKelamin = $('#jeniskelamin').val();
+			   
+			//    var vUmurArr = [];
+			//    var vDaerah = $('#daerah').val();
+			//    var vCountLaki = 0;
+			   
+			//    	if(isNaN(vUmur) == false) {
+			//    		vUmurArr.push(vUmur);
+			   		
+			//    	}
+			   
+
+			//   if(($('#fullNameBio').val() == '') | ($('#jeniskelamin').val() == '') | ($('#umur').val() == '') | ($('#daerah').val() == '')) {
+			//     alert("<strong>Warning!</strong> You left the input empty")
+			//     // $('#alert').html("<strong>Warning!</strong> You left the input empty");
+			//     // $('#alert').fadeIn().delay(1000).fadeOut();
+			//     return false;
+			//    }
+			  
+			//    $('#newBiodata').empty().append("<li><input id='check' name='check' type='checkbox'/>"  +" | " + vFullNameBio +" | " + vCountLaki + " | " +" | "+ vDaerah +"</li><br><br>");
+			   
+
+			//    // $('#form')[0].reset();
+			//    var post = $('#newBiodata').html();
+			   
+			//    localStorage.setItem('newUmurAfter',JSON.stringify(vUmurArr));
+			//    localStorage.setItem('newBiodata', post);
+			//    return false;
+			// });
+
+			// if(localStorage.getItem('newBiodata')) {
+			// 	$('#newBiodata').html(localStorage.getItem('newBiodata'));				
+			// }
+
+			// if(localStorage.getItem('newUmurAfter')) {
+			// 	var vUmur = $('#umur').val();
+			// 	var arrUmurAfterGet = localStorage.getItem('newUmurAfter');
+			// 	var arrUmurParse = JSON.parse(arrUmurAfterGet);
+			// 	var kumpulanUmur = 0;
+			// 	for (var i = arrUmurParse.length - 1; i >= 0; i--) {
+			// 		kumpulanUmur +=arrUmurParse[i];
+			// 	}
+
+			// 	var rataUmur = Math.floor(kumpulanUmur/arrUmurParse.length);
+			// 	$('#newUmurPost').empty().append("Haloo" +rataUmur +"<br>");
+			// 	var newU
+			// 	$('#newUmurAfter').html(rataUmur);	
+			// }
+
+			// $('#clearbiodata').click( function() {
+			// 	window.localStorage.clear();
+			// 	location.reload();
+			// 	return false;
+			// });
+		</script>		
+
+		<script type="text/javascript">
+		// $('#biodatapost').click( function() {
+		// 				 var vJenisKelamin = $('#jeniskelamin').val();
+		// 				 var vUmur = $('#umur').val();
+						
+
+		// 					 if(typeof(Storage) !== "undefined") {
+
+		// 					 	//cek kelamin
+		// 					 	if(vJenisKelamin == 'pria') {
+		// 				 			 if (localStorage.vCountPria) {
+		// 				 				localStorage.vCountPria = (Number(localStorage.vCountPria)+1);
+		// 				 			} else {
+		// 				 				localStorage.vCountPria = 1;
+		// 				 			}
+		// 					 	} else if (vJenisKelamin == 'wanita') {
+		// 				 			 if (localStorage.vCountPria) {
+		// 				 				localStorage.vCountWanita = (Number(localStorage.vCountWanita))+1;
+		// 				 			} else {
+		// 				 				localStorage.vCountWanita = 1;
+		// 				 			}					 		 						 					 			
+		// 					 	} 
+
+		// 					 	//cek umur
+		// 				 		if(isNan(vUmur) == false) {
+		// 				 			localStorage.vCountUmur = (Number(vUmur)) + vUmur;	
+		// 				 		}							 		
+								
+		// 						// cek pengunjung						 	
+		// 					 	if (localStorage.vCountVisit) {
+		// 				            localStorage.vCountVisit = (Number(localStorage.vCountVisit))+1;
+		// 				        } else {
+		// 				            localStorage.vCountVisit = 1;
+		// 				        }
+
+		// 				        //retrieve
+		// 						    document.getElementById("newPria").innerHTML = localStorage.getItem("vCountPria") + " Pria";    
+		// 						    document.getElementById("newWanita").innerHTML = localStorage.getItem("vCountWanita") + " Wanita";    
+		// 						    document.getElementById("newVisit").innerHTML = localStorage.getItem("vCountVisit") + " Visitor";    
+		// 						    document.getElementById("newUmur").innerHTML = localStorage.getItem("vCountUmur") + " Rata-rata Umur";    
+						 	
+		// 				 	} else {
+		// 				 		alert("Sorry, your browser does not support web storage...");			 		
+		// 				 	}							 
+							
+		// });
+
+		// barudihapus disini juga			
+		</script>
+
+		<script type="text/javascript">
+		// $('#biodatapost').click( function() {
+		// 			var vJenisKelamin = $('#jeniskelamin').val();
+		// 							 var vUmur = $('#umur').val();
+		// 				if(vJenisKelamin == 'pria') {
+		// 					 if(typeof(Storage) !== "undefined") {
+		// 					        if (localStorage.vCountPria) {
+		// 					            localStorage.vCountPria = Number(localStorage.vCountPria)+1;
+		// 					        } else {
+		// 					            localStorage.vCountPria = 1;
+		// 					        }			        
+		// 					    } else {
+		// 					        alert("Sorry, your browser does not support web storage...");
+		// 					    }
+		// 					}
+		// 				} else if (vJenisKelamin == 'wanita') {
+		// 					 if(typeof(Storage) !== "undefined") {
+		// 					        if (localStorage.vCountWanita) {
+		// 					            localStorage.vCountWanita = Number(localStorage.vCountWanita)+1;
+		// 					        } else {
+		// 					            localStorage.vCountWanita = 1;
+		// 					        }			        
+		// 					    } else {
+		// 					        alert("Sorry, your browser does not support web storage...");
+		// 					    }
+		// 					}
+		// 				}
+
+						
+
+		// 				 if(typeof(Storage) !== "undefined") {
+		// 					        if (localStorage.vCountUmur) {
+		// 					            localStorage.vCountUmur = vUmur;
+		// 					        } 
+		// 					    } else {
+		// 					        alert("Sorry, your browser does not support web storage...");
+		// 					    }
+		// 					}
+
+						
+		// 					 if(typeof(Storage) !== "undefined") {
+		// 					        if (localStorage.vCountVisit) {
+		// 					            localStorage.vCountVisit = Number(localStorage.vCountVisit)+1;
+		// 					        } else {
+		// 					            localStorage.vCountVisit = 1;
+		// 					        }			        
+		// 					    } else {
+		// 					        alert("Sorry, your browser does not support web storage...");
+		// 					    }
+		// 					}
+
+
+
+
+		// 			    document.getElementById("newPria").innerHTML = localStorage.vCountPria + " Pria";    
+		// 			    document.getElementById("newWanita").innerHTML = localStorage.vCountWanita + " Wanita";    
+		// 			    document.getElementById("newVisit").innerHTML = localStorage.vCountVisit + " Visitor";    
+		// 			    document.getElementById("newUmur").innerHTML = localStorage.vCountUmur + " Rata-rata Umur";    
+		//     });
+		</script>
+		<script type="text/javascript">			
+		// script untuk load text pada profile	
+			$(document).ready(function() {
+			    $("#readmore").click(function() {
+			        $.ajax({
+			            url : "text/profile-text.txt",
+			            dataType: "text",
+			            success : function (data) {
+			                $("#my-profile").append(data);
+			                $("#readmore").remove();
+			                
+			            }
+			        });
+			    });
+			}); 
+		</script>
+
+		<script type="text/javascript">			
+		// script untuk load text pada section technology
+			$(document).ready(function() {
+			    $(".more-techno").click(function() {
+			        $.ajax({
+			            url : "text/microsoft.txt",
+			            dataType: "text",
+			            success : function (data) {
+			                $("#techno-microsoft-text").append(data);			                
+			            }
+			        });
+			    });
+			}); 
+		</script>
+
+
+		<script type="text/javascript">			
+		// script untuk load text pada section education			
+			$(document).ready(function() {
+			    $(".more-edu").click(function() {
+			        $.ajax({
+			            url : "text/edu.txt",
+			            dataType: "text",
+			            success : function (data) {
+			                $("#edu-text").append(data);			                
+			            }
+			        });
+			    });
+			}); 
+		</script>
+
+		<script type="text/javascript">			
+		// script untuk load text pada section politics	
+			$(document).ready(function() {
+			    $(".more-politic").click(function() {
+			        $.ajax({
+			            url : "text/politic.txt",
+			            dataType: "text",
+			            success : function (data) {
+			                $("#politic-text").append(data);			                
+			            }
+			        });
+			    });
+			}); 					
+		</script>
+
+	</body>
+</html>
